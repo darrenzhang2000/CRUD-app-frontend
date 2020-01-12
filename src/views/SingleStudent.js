@@ -14,4 +14,5 @@ class SingleStudent extends Component{
     }
 }
 
+// export default connect(mapStateToProps)(SingleStudent);
 export default SingleStudent;

@@ -7,6 +7,8 @@ import { createStore, combineReducers } from 'redux';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AllCampuses from './views/AllCampuses';
 import AllStudents from './views/AllStudents';
+import SingleCampus from './views/SingleCampus';
+import SingleStudent from './views/SingleStudent';
 import { Provider } from 'react-redux';
 
 //dummy data
@@ -22,7 +24,8 @@ const dummyCampus1 = {
     name: "c1",
     image: "none",
     address: "c1 address",
-    description: "c1 description"
+    description: "c1 description",
+    studentList: [dummyStudent1]
 }
 
 const initialStudentState = {
@@ -125,7 +128,8 @@ store.dispatch(
             name: "temp",
             image: "temp img",
             address: "temp address",
-            description: "temp description"
+            description: "temp description",
+            studentList: [dummyStudent1]
         }
     }); 
 
@@ -149,6 +153,7 @@ const routing = (
                 <Route exact path="/" component={App} />
                 <Route exact path="/campuses" component={AllCampuses} />
                 <Route exact path="/students" component={AllStudents} />
+                <Route exact path="/campus" component={SingleCampus} />
             </div>
         </Router>
     </Provider>
