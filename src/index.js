@@ -16,7 +16,8 @@ const dummyStudent1 = {
     name: "s1",
     email: "s1 email",
     address: "s1 address",
-    gpa: "s1 gpa"   
+    gpa: "s1 gpa",
+    campusName: "Hunter College"
 }
 
 //dummy data
@@ -106,7 +107,8 @@ store.dispatch(
             name: "temp",
             email: "temp email",
             address: "temp address",
-            gpa: "temp gpa"
+            gpa: "temp gpa",
+            campusName: "temp campus 1 from store"
         }
     });  
     
@@ -117,7 +119,8 @@ store.dispatch(
             name: "temp 2",
             email: "temp email 2",
             address: "temp address 2",
-            gpa: "temp gpa 2"
+            gpa: "temp gpa 2",
+            campusName: "temp campus 1"
         }
     });
 
@@ -140,7 +143,9 @@ store.dispatch(
             name: "temp 2",
             image: "temp img 2",
             address: "temp address 2",
-            description: "temp description 2"
+            description: "temp description 2",
+            studentList: [dummyStudent1]
+
         }
     });     
 console.log('done', store.getState());
@@ -154,6 +159,7 @@ const routing = (
                 <Route exact path="/campuses" component={AllCampuses} />
                 <Route exact path="/students" component={AllStudents} />
                 <Route exact path="/campus" component={SingleCampus} />
+                <Route exact path="/student" component={SingleStudent} />
             </div>
         </Router>
     </Provider>

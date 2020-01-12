@@ -15,14 +15,16 @@ const dummyStudentList = [{
   name: "temp",
   email: "temp email",
   address: "temp address",
-  gpa: "temp gpa"
+  gpa: "temp gpa",
+  campusName: "temp campus"
 }];
 
 //for SingleStudent.js
 const dummyStudentName = "Harry Potter";
 const dummyStudentEmail = "harrypotter@hogwarts.edu";
 const dummyStudentImage = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daniel-radcliffe-harry-potter-1577468480.jpg?crop=0.871xw:0.776xh;0.0425xw,0&resize=480:*";
-const dummyStudentGpa = "4.0"
+const dummyStudentGpa = "4.0";
+const dummpyCampusName = "hogwarts";
 
 //for AllStudents.js
 const dummyStudent1 = {
@@ -35,7 +37,8 @@ const dummyStudent2 = {
   name: "dummyStudentName2",
   email: "dummyStudentEmail2",
   image: "dummyStudentImage2",
-  gpa: "dummyStudentGpa2"
+  gpa: "dummyStudentGpa2",
+  campusName: "dummyCampusName2"
 }
 const dummyStudents = [dummyStudent1, dummyStudent2];
 
@@ -65,7 +68,7 @@ function App() {
       </ul>
 
       <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} studentList={dummyStudentList}/>
-      <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
+      <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} campusName={dummyCampusName} />
       <AllStudents students={dummyStudents}/>
       <AllCampuses campuses={dummyCampuses}/>
     </div>
