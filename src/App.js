@@ -44,18 +44,12 @@ const dummyCampuses = [dummyCampus1];
 
 function App() {
   return (
-    <Router>
-      <div>
-        <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
-        <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
-        <AllStudents students={dummyStudents}/>
-        <AllCampuses campuses={dummyCampuses}/>
-      </div>
-
-      <div>
-        {/* <Route exact path="/campuses/:id" component=/> */}
-      </div>
-    </Router>
+    <div>
+      <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
+      <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
+      <AllStudents students={dummyStudents}/>
+      <AllCampuses campuses={dummyCampuses}/>
+    </div>
   );
 }
 

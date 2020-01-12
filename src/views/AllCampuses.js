@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { StaticRouter } from 'react-router-dom';
 
 class AllCampuses extends Component{
     render(){
@@ -17,4 +19,11 @@ class AllCampuses extends Component{
     }
 }
 
-export default AllCampuses;
+function mapStateToProps(state){
+    // console.log("state: ", state.campusState.allCampuses);
+    return{
+        campuses: state.campusState.allCampuses
+    }
+}
+
+export default connect(mapStateToProps)(AllCampuses);

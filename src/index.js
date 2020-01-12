@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AllCampuses from './views/AllCampuses';
+import { Provider } from 'react-redux';
 
 //dummy data
 const dummyStudent1 = {
@@ -138,7 +141,18 @@ store.dispatch(
 console.log('done', store.getState());
 console.log(store.getState());
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const routing = (
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Route exact path="/" component={App} />
+                <Route exact path="/campuses" component={AllCampuses} />
+            </div>
+        </Router>
+    </Provider>
+)
+
+ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
