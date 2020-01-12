@@ -7,7 +7,7 @@ class AllStudents extends Component{
     render(){
         let allStudentsDisplay = this.props.students.map((student, id)=>
             <div key={id}>
-                <p key={id}>{student.name}</p>
+                <p key={id}>Student {id} Name: {student.name}</p>
             </div>
         )
         return(
@@ -22,6 +22,12 @@ class AllStudents extends Component{
                     </li>
                     <li>
                     <Link to="/students">All Students</Link>
+                    </li>
+                    <li>
+                    <Link to="/campus">Single Campus</Link>
+                    </li>
+                    <li>
+                    <Link to="/student">Single Student</Link>
                     </li>
                 </ul>
                 <h1>All Students</h1>

@@ -20,6 +20,14 @@ const dummyStudent1 = {
     campusName: "Hunter College"
 }
 
+const dummyStudent2 = {
+    name: "s2",
+    email: "s2 email",
+    address: "s2 address",
+    gpa: "s2 gpa",
+    campusName: "Hunter College"
+}
+
 //dummy data
 const dummyCampus1 = {
     name: "c1",
@@ -132,7 +140,7 @@ store.dispatch(
             image: "temp img",
             address: "temp address",
             description: "temp description",
-            studentList: [dummyStudent1]
+            studentList: [dummyStudent1, dummyStudent2]
         }
     }); 
 
@@ -144,13 +152,14 @@ store.dispatch(
             image: "temp img 2",
             address: "temp address 2",
             description: "temp description 2",
-            studentList: [dummyStudent1]
+            studentList: [dummyStudent1, dummyStudent2]
 
         }
     });     
 console.log('done', store.getState());
 console.log(store.getState());
 
+const uniqStudent = ({ match }) => <p>{match.params.id}</p>
 const routing = (
     <Provider store={store}>
         <Router>
@@ -160,6 +169,8 @@ const routing = (
                 <Route exact path="/students" component={AllStudents} />
                 <Route exact path="/campus" component={SingleCampus} />
                 <Route exact path="/student" component={SingleStudent} />
+                {/* <Route exact path="/student/:id" component={SingleStudent} />
+                <Route exact path="/campus/:id" component={SingleCampus} /> */}
             </div>
         </Router>
     </Provider>
@@ -170,4 +181,4 @@ ReactDOM.render(routing, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister(); 

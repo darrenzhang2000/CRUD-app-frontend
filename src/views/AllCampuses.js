@@ -8,7 +8,7 @@ class AllCampuses extends Component{
     render(){
         let allCampusesDisplay = this.props.campuses.map((campus, id)=>
             <div key={id}>
-                <p key={id}>{campus.name}</p>
+                <p key={id}>Campus {id} Name: {campus.name}</p>
                 <img src={campus.image} alt={campus.image}/>
             </div>
         )
@@ -24,6 +24,12 @@ class AllCampuses extends Component{
                     </li>
                     <li>
                     <Link to="/students">All Students</Link>
+                    </li>
+                    <li>
+                    <Link to="/campus">Single Campus</Link>
+                    </li>
+                    <li>
+                    <Link to="/student">Single Student</Link>
                     </li>
                 </ul>
                 <h1>All Campuses</h1>

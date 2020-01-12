@@ -65,6 +65,12 @@ function App() {
         <li>
           <Link to="/students">All Students</Link>
         </li>
+        <li>
+          <Link to="/campus">Single Campus</Link>
+        </li>
+        <li>
+          <Link to="/student">Single Student</Link>
+        </li>
       </ul>
 
       <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} studentList={dummyStudentList}/>
