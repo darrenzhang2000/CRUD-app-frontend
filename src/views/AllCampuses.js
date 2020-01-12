@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+
 
 class AllCampuses extends Component{
     render(){
@@ -12,6 +14,18 @@ class AllCampuses extends Component{
         )
         return(
             <div>
+                {/* //navbar */}
+                <ul>
+                    <li>
+                    <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                    <Link to="/campuses">All Campuses</Link>
+                    </li>
+                    <li>
+                    <Link to="/students">All Students</Link>
+                    </li>
+                </ul>
                 <h1>All Campuses</h1>
                 {allCampusesDisplay}
             </div>

@@ -4,7 +4,7 @@ import SingleCampus from './views/SingleCampus';
 import SingleStudent from './views/SingleStudent';
 import AllStudents from './views/AllStudents';
 import AllCampuses from './views/AllCampuses';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 //for SingleCampus.js 
 const dummyCampusName = "Hogwarts";
@@ -45,6 +45,19 @@ const dummyCampuses = [dummyCampus1];
 function App() {
   return (
     <div>
+      {/* //navbar */}
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/campuses">All Campuses</Link>
+        </li>
+        <li>
+          <Link to="/students">All Students</Link>
+        </li>
+      </ul>
+
       <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
       <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
       <AllStudents students={dummyStudents}/>
