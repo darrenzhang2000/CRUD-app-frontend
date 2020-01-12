@@ -4,10 +4,10 @@ class SingleCampus extends Component{
     render(){
         return(
             <div>
-                <p>{this.props.name}</p>
-                <p>{this.props.image}</p>
-                <p>{this.props.address}</p>
-                <p>{this.props.description}</p>
+                <p>Campus Name: {this.props.name}</p>
+                <img src={this.props.image}/>
+                <p>Address: {this.props.address}</p>
+                <p>description: {this.props.description}</p>
             </div>
         );
     }

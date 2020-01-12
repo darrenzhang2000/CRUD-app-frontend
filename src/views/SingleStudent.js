@@ -1,19 +1,16 @@
-import react, { Component } from 'react'
+import React, { Component } from 'react'
 
-class SingleCampus extends Component{
-    constructor(props){
-        super(props);
-    }
+class SingleStudent extends Component{
     render(){
         return(
             <div>
-                <p>{this.props.name}</p>
-                <p>{this.props.image}</p>
-                <p>{this.props.address}</p>
-                <p>{this.props.description}</p>
+                <p>Student Name: {this.props.name}</p>
+                <img src={this.props.email}/>
+                <p>Address: {this.props.image}</p>
+                <p>GPA: {this.props.gpa}</p>
             </div>
         );
     }
 }
 
-export default SingleCampus;
+export default SingleStudent;
