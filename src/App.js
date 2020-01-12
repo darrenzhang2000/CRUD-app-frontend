@@ -3,6 +3,7 @@ import './App.css';
 import SingleCampus from './views/SingleCampus';
 import SingleStudent from './views/SingleStudent';
 import AllStudents from './views/AllStudents';
+import AllCampuses from './views/AllCampuses';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //for SingleCampus.js 
@@ -24,15 +25,22 @@ const dummyStudent1 = {
   image: dummyStudentImage,
   gpa: dummyStudentGpa
 }
-
 const dummyStudent2 = {
   name: "dummyStudentName2",
   email: "dummyStudentEmail2",
   image: "dummyStudentImage2",
   gpa: "dummyStudentGpa2"
 }
-
 const dummyStudents = [dummyStudent1, dummyStudent2];
+
+//for AllCampuses.js
+const dummyCampus1 = {
+  name: dummyCampusName,
+  image: dummyCampusImage,
+  address: dummyCampusAddress,
+  description: dummyCampusDescription
+}
+const dummyCampuses = [dummyCampus1];
 
 function App() {
   return (
@@ -41,6 +49,7 @@ function App() {
         <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
         <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
         <AllStudents students={dummyStudents}/>
+        <AllCampuses campuses={dummyCampuses}/>
       </div>
 
       <div>
