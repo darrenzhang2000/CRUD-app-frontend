@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
+//dummy data
 const dummyStudent1 = {
     name: "s1",
     email: "s1 email",
@@ -12,6 +13,7 @@ const dummyStudent1 = {
     gpa: "s1 gpa"   
 }
 
+//dummy data
 const dummyCampus1 = {
     name: "c1",
     image: "none",
@@ -19,13 +21,15 @@ const dummyCampus1 = {
     description: "c1 description"
 }
 
-const initialState = {
+const initialStudentState = {
     allStudents: [dummyStudent1],
-    allCampuses: [dummyCampus1],
-    singleStudent: {},
-    singleCampus: {}
-};
+    singleStudent: {}
+}
 
+const initialCampusState = {
+    allCampuses: [dummyCampus1],
+    singleCampus: {}
+}
 
 //action types
 const ADD_TO_ALL_STUDENTS = "ADD_TO_ALL_STUDENTS";
@@ -33,51 +37,20 @@ const ADD_TO_ALL_CAMPUSES = "ADD_TO_ALL_CAMPUSES";
 const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
 
-// function addToAllStudents(student){
-//     let temp = [...allStudents, student];
-
-// }
-
-
-function reducer(state = initialState , action){
-    console.log('reducer', action); 
+const campusReducer = function(state = initialCampusState, action){
     switch(action.type){
-        case ADD_SINGLE_STUDENT:
-            //Since we must treat states as immutable, we must create a new objects/arrays
-            //console.log("data.allstudents: ", action.data.allStudents);
-            var newState = {
-                allStudents: state.allStudents,
-                allCampuses: state.allCampuses,
-                singleStudent: action.data, //add new student data here
-                singleCampus: state.singleCampus   
-            }
-            return newState;
-        case ADD_TO_ALL_STUDENTS:
-            //Since we must treat states as immutable, we must create a new objects/arrays
-            console.log("all students: ", state.allStudents);
-            let newAllStudents = [...state.allStudents, action.data];
-            var newState = {
-                allStudents: newAllStudents, //new array here
-                allCampuses: state.allCampuses,
-                singleStudent: state.singleStudent,
-                singleCampus: state.singleCampus
-            }
-            return newState;
         case ADD_SINGLE_CAMPUS:
             //Since we must treat states as immutable, we must create a new objects/arrays
+            console.log("state: ", state)
             var newState = {
-                allStudents: state.allStudents,
                 allCampuses: state.allCampuses,
-                singleStudent: state.singleStudent,
                 singleCampus: action.data  //new campus here
             }
-            return newState;
+            return newState;    
         case ADD_TO_ALL_CAMPUSES:
             let newAllCampuses = [...state.allCampuses, action.data];
             var newState = {
-                allStudents: state.allStudents,
                 allCampuses: newAllCampuses, //new array here
-                singleStudent: state.singleStudent,
                 singleCampus: state.singleCampus
             }
             return newState;
@@ -85,6 +58,35 @@ function reducer(state = initialState , action){
             return state;
     }
 }
+
+const studentReducer = function(state = initialStudentState, action){
+    switch(action.type){
+        case ADD_SINGLE_STUDENT:
+            //Since we must treat states as immutable, we must create a new objects/arrays
+            // console.log("state: ", state);
+            var newState = {
+                allStudents: state.allStudents,
+                singleStudent: action.data //add new student data here
+            }
+            return newState;
+        case ADD_TO_ALL_STUDENTS:
+            //Since we must treat states as immutable, we must create a new objects/arrays
+            // console.log("state: ", state);
+            let newAllStudents = [...state.allStudents, action.data];
+            var newState = {
+                allStudents: newAllStudents, //new array here
+                singleStudent: state.singleStudent
+            }
+            return newState;   
+        default:
+            return state;   
+    }
+}
+
+const reducer = combineReducers({
+    campusState: campusReducer,
+    studentState: studentReducer
+});
 
 const store = createStore(reducer);
 console.log('init', store.getState());
@@ -134,8 +136,7 @@ store.dispatch(
         }
     });     
 console.log('done', store.getState());
-
-
+console.log(store.getState());
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
