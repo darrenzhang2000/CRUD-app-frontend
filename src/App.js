@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import SingleCampus from './views/SingleCampus';
 import SingleStudent from './views/SingleStudent';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //for SingleCampus.js
 const dummyCampusName = "Hogwarts";
@@ -18,10 +19,16 @@ const dummyStudentGpa = "4.0"
 
 function App() {
   return (
-    <div>
-      <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
-      <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
-    </div>
+    <Router>
+      <div>
+        <SingleCampus name={dummyCampusName} image={dummyCampusImage} address={dummyCampusAddress} description={dummyCampusDescription} />
+        <SingleStudent name={dummyStudentName} email={dummyStudentEmail} image={dummyStudentImage} gpa={dummyStudentGpa} />
+      </div>
+
+      <div>
+        {/* <Route exact path="/campuses/:id" component=/> */}
+      </div>
+    </Router>
   );
 }
 
