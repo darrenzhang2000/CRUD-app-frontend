@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AllCampuses from './views/AllCampuses';
+import AllStudents from './views/AllStudents';
 import { Provider } from 'react-redux';
 
 //dummy data
@@ -147,6 +148,7 @@ const routing = (
             <div>
                 <Route exact path="/" component={App} />
                 <Route exact path="/campuses" component={AllCampuses} />
+                <Route exact path="/students" component={AllStudents} />
             </div>
         </Router>
     </Provider>

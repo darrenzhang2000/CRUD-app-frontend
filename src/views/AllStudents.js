@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { StaticRouter } from 'react-router-dom';
+
 
 class AllStudents extends Component{
     render(){
@@ -16,4 +19,10 @@ class AllStudents extends Component{
     }
 }
 
-export default AllStudents;
+function mapStateToProps(states){
+    return{
+        students: states.studentState.allStudents
+    }
+}
+
+export default connect(mapStateToProps)(AllStudents);
