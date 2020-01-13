@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Redirect } from 'react-router-dom';
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 // const uniqCampus = ({ match }) => <p>{match.params.id}</p>
@@ -13,14 +13,31 @@ const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 //         data: student
 //     })}
 
+// function navigateToStudent(student){
+//     this.props.dispatch({
+//         type: ADD_SINGLE_STUDENT,
+//         data: student
+//     })
+// }
+
 class SingleCampus extends Component{
+    constructor(){
+        super();
+    }
     render(){
         // console.log("this.props", this.props); //to test route with params /:id
         let studentList = this.props.studentList.map((student, id) =>
-            <li key={id} onClick={() => this.props.dispatch({
-                type: ADD_SINGLE_STUDENT,
-                data: student
-            })} >{student.name}</li>
+            <li key={id}>
+                <Link key={id} 
+                to="/student"
+                onClick= { () =>
+                    this.props.dispatch({
+                        type: ADD_SINGLE_STUDENT,
+                        data: student
+                    })                
+                } >{student.name}
+                </Link>
+            </li>
         )
         // console.log("student List", studentList);
         return(
