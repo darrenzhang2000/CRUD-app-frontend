@@ -6,26 +6,35 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
 
 class SingleStudent extends Component{
-    render(){
-        return(
-            <div>
-                <h1>Single Student</h1>
-                <p>Student Name: {this.props.name}</p>
-                <p>Email: {this.props.email} </p>
-                <p>Address: {this.props.address}</p>
-                <p>GPA: {this.props.gpa}</p>
-                <Link to="/campus"
+
+    showCampusName = () => {
+        console.log("campus name", this.props.campusName);
+        if(this.props.campusName === "" || this.props.campusName === undefined) {
+            return <p>This student is not registered to a campus.</p>
+        } else {
+            return (<Link to="/campus"
                     onClick= { () =>{
                         let campusOfStudent = this.props.allCampuses.find(campus => campus.name === this.props.campusName);
-                        // console.log("campusOfStudent", campusOfStudent);
                         this.props.dispatch({
                             type: ADD_SINGLE_CAMPUS,
                             data: campusOfStudent
                         })  
                     }              
-                    } 
-                >
-                    Campus: {this.props.campusName} </Link>
+                    } > Campus: {this.props.campusName} </Link>)
+        }
+    }
+
+    render(){
+        return(
+            <div>
+
+                <h1>Single Student</h1>
+                <p>Student Name: {this.props.name}</p>
+                <p>Email: {this.props.email} </p>
+                <p>Address: {this.props.address}</p>
+                <p>GPA: {this.props.gpa}</p>
+                { this.showCampusName() }
+                
             </div>
         );
     }

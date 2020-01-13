@@ -160,9 +160,20 @@ store.dispatch(
 
 store.dispatch( 
     {
-        type: ADD_SINGLE_CAMPUS,
+        type: ADD_TO_ALL_STUDENTS,
         data: {
             name: "temp",
+            image: "temp img",
+            address: "temp address",
+            description: "temp description",
+            studentList: [dummyStudent1, dummyStudent2]
+        }
+    }); 
+store.dispatch( 
+    {
+        type: ADD_SINGLE_CAMPUS,
+        data: {
+            name: "Hunter College",
             image: "temp img",
             address: "temp address",
             description: "temp description",
@@ -196,6 +207,18 @@ store.dispatch(
         }
     });   
 
+    store.dispatch( 
+        {
+            type: ADD_TO_ALL_CAMPUSES,
+            data: {
+                name: "Hunter College",
+                image: "temp img 2",
+                address: "temp address 2",
+                description: "temp description 2",
+                studentList: [dummyStudent1, dummyStudent2]
+    
+            }
+        });  
 console.log('done', store.getState());
 console.log(store.getState());
 
@@ -252,3 +275,4 @@ ReactDOM.render(routing, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister(); 
+export default store; 

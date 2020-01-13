@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { StaticRouter, Redirect } from 'react-router-dom';
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import store from '../index';
 
-// const uniqCampus = ({ match }) => <p>{match.params.id}</p>
 
 const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 
@@ -36,9 +36,11 @@ class SingleCampus extends Component{
                     this.props.dispatch({
                         type: ADD_SINGLE_STUDENT,
                         data: student
-                    })                
+                    })
+                             
                 } >{student.name}
                 </Link>
+                {/* {console.log(store.getState())}       */}
             </li>
         )
         // console.log("student List", studentList);
@@ -58,9 +60,9 @@ class SingleCampus extends Component{
         );
     }
 }
-
+//.studentList[0].name
 function mapStateToProps(states){
-    // console.log("state: ", states.campusState.singleCampus.studentList[0].name);
+    console.log("state: ", states.campusState);
     return{
         name: states.campusState.singleCampus.name,
         image: states.campusState.singleCampus.image,
