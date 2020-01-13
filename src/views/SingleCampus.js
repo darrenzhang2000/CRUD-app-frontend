@@ -20,6 +20,8 @@ const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 //     })
 // }
 
+const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
+
 class SingleCampus extends Component{
     constructor(){
         super();

@@ -156,6 +156,19 @@ store.dispatch(
 
         }
     });     
+
+store.dispatch( 
+    {
+        type: ADD_TO_ALL_CAMPUSES,
+        data: {
+            name: "temp campus 1 from store",
+            image: "temp img 2",
+            address: "temp address 2",
+            description: "temp description 2",
+            studentList: [dummyStudent1, dummyStudent2]
+
+        }
+    });   
 console.log('done', store.getState());
 console.log(store.getState());
 

@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
+const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
+
 class AllStudents extends Component{
     render(){
         let allStudentsDisplay = this.props.students.map((student, id)=>
             <div key={id}>
-                <p key={id}>Student {id} Name: {student.name}</p>
+                <li>
+                    <Link key={id} onClick={() => this.props.dispatch({ type: ADD_SINGLE_STUDENT, data: student })} to="/student">
+                        Student {id} Name: {student.name}
+                    </Link>
+                </li>
             </div>
         )
         return(
@@ -31,7 +37,9 @@ class AllStudents extends Component{
                     </li>
                 </ul>
                 <h1>All Students</h1>
-                {allStudentsDisplay}
+                <ul>
+                    {allStudentsDisplay}
+                </ul>
             </div>
         );
     }
