@@ -10,6 +10,10 @@ import AllStudents from './views/AllStudents';
 import SingleCampus from './views/SingleCampus';
 import SingleStudent from './views/SingleStudent';
 import { Provider } from 'react-redux';
+import EditCampusForm from './views/EditCampusForm';
+import AddCampusForm from './views/AddCampusForm';
+import AddCampusPage from './views/AddCampusPage';
+import { reducer as formReducer } from 'redux-form';
 
 //dummy data
 const dummyStudent1 = {
@@ -52,6 +56,8 @@ const ADD_TO_ALL_STUDENTS = "ADD_TO_ALL_STUDENTS";
 const ADD_TO_ALL_CAMPUSES = "ADD_TO_ALL_CAMPUSES";
 const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
+const EDIT_SINGLE_STUDENT = "EDIT_SINGLE_STUDENT";  
+const EDIT_SINGLE_CAMPUS = "EDIT_SINGLE_CAMPUS";
 
 const campusReducer = function(state = initialCampusState, action){
     switch(action.type){
@@ -70,6 +76,11 @@ const campusReducer = function(state = initialCampusState, action){
                 singleCampus: state.singleCampus
             }
             return newState;
+        case EDIT_SINGLE_CAMPUS:
+            let temp = [...state.allCampuses];
+            let campusIndex = temp.indexOf(campus => campus.name === action.campusName);
+            temp[campusIndex] = action.data;
+            return temp; 
         default:
             return state;
     }
@@ -101,7 +112,8 @@ const studentReducer = function(state = initialStudentState, action){
 
 const reducer = combineReducers({
     campusState: campusReducer,
-    studentState: studentReducer
+    studentState: studentReducer,
+    form: formReducer
 });
 
 const store = createStore(reducer);
@@ -182,6 +194,8 @@ const routing = (
                 <Route exact path="/students" component={AllStudents} />
                 <Route exact path="/campus" component={SingleCampus} />
                 <Route exact path="/student" component={SingleStudent} />
+                <Route exact path="/campus/edit" component={EditCampusForm}/>
+                <Route exact path="/campus/add" component={AddCampusPage}/>
                 {/* <Route exact path="/student/:id" component={SingleStudent} />
                 <Route exact path="/campus/:id" component={SingleCampus} /> */}
             </div>
