@@ -26,9 +26,12 @@ class SingleCampus extends Component{
     constructor(){
         super();
     }
-    render(){
-        // console.log("this.props", this.props); //to test route with params /:id
-        let studentList = this.props.studentList.map((student, id) =>
+    
+    showStudentsOfCampus = () => {
+        if(this.props.studentList === undefined) {
+            return(<p>This campus does not have any students enrolled.</p>)
+        } else {
+            let studentList = this.props.studentList.map((student, id) =>(
             <li key={id}>
                 <Link key={id} 
                 to="/student"
@@ -40,10 +43,14 @@ class SingleCampus extends Component{
                              
                 } >{student.name}
                 </Link>
-                {/* {console.log(store.getState())}       */}
             </li>
-        )
-        // console.log("student List", studentList);
+            ))
+            return studentList; 
+        }
+    }
+
+    render(){
+        
         return(
             <div>
 
@@ -54,7 +61,7 @@ class SingleCampus extends Component{
                 <p>description: {this.props.description}</p>
                 <ul>
                     <h3>Student List</h3>
-                    {studentList}
+                    {this.showStudentsOfCampus()}
                 </ul>
             </div>
         );
