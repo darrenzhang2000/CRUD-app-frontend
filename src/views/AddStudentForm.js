@@ -5,33 +5,35 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import { reduxForm } from 'redux-form';
 import { Field } from 'redux-form'
 
-let AddCampusForm = props => {
+let AddStudentForm = props => {
     const { handleSubmit } = props
     return <div>
+        {/* //navbar */}
+
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Full Name</label>
                 <Field name="name" component="input" type="text" />
+            </div>
+            <div>
+                <label htmlFor="email">Email</label>
+                <Field name="email" component="input" type="text" />
+            </div>
+            <div>
+                <label htmlFor="gpa">GPA</label>
+                <Field name="gpa" component="input" type="text" />
             </div>
             <div>
                 <label htmlFor="address">Address</label>
                 <Field name="address" component="input" type="text" />
-            </div>
-            <div>
-                <label htmlFor="image">Image</label>
-                <Field name="image" component="input" type="text" />
-            </div>
-            <div>
-                <label htmlFor="description">Description</label>
-                <Field name="description" component="input" type="text" />
             </div>
             <button type="submit">Submit</button>
         </form>
     </div>
 }
 
-AddCampusForm = reduxForm({
-    form: 'addcampus'
-})(AddCampusForm)
+AddStudentForm = reduxForm({
+    form: 'addstudent'
+})(AddStudentForm)
 
-export default AddCampusForm;
+export default AddStudentForm;

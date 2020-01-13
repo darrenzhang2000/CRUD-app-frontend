@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 import AllCampuses from './views/AllCampuses';
 import AllStudents from './views/AllStudents';
 import SingleCampus from './views/SingleCampus';
@@ -13,7 +13,10 @@ import { Provider } from 'react-redux';
 import EditCampusForm from './views/EditCampusForm';
 import AddCampusForm from './views/AddCampusForm';
 import AddCampusPage from './views/AddCampusPage';
+import AddStudentForm from './views/AddStudentForm';
+import AddStudentPage from './containers/AddStudentPage';
 import { reducer as formReducer } from 'redux-form';
+
 
 //dummy data
 const dummyStudent1 = {
@@ -143,6 +146,17 @@ store.dispatch(
             campusName: "temp campus 1"
         }
     });
+store.dispatch( 
+    {
+        type: ADD_TO_ALL_STUDENTS,
+        data: {
+            name: "temp 3",
+            email: "temp email 2",
+            address: "temp address 2",
+            gpa: "temp gpa 2",
+            campusName: "temp campus 1"
+        }
+    });
 
 store.dispatch( 
     {
@@ -181,13 +195,40 @@ store.dispatch(
 
         }
     });   
+
 console.log('done', store.getState());
 console.log(store.getState());
 
 const uniqStudent = ({ match }) => <p>{match.params.id}</p>
 const routing = (
     <Provider store={store}>
+ 
         <Router>
+        <h1>HEADER TEST</h1>
+            {/* //navbar */}
+            <ul>
+                <li>
+                <Link to="/">Home</Link>
+                </li>
+                <li>
+                <Link to="/campuses">All Campuses</Link>
+                </li>
+                <li>
+                <Link to="/students">All Students</Link>
+                </li>
+                <li>
+                <Link to="/campus">Single Campus</Link>
+                </li>
+                <li>
+                <Link to="/student">Single Student</Link>
+                </li>
+                <li>
+                <Link to="/campus/add">Add Campus</Link>
+                </li>
+                <li>
+                <Link to="/student/add">Add Student</Link>
+                </li>
+            </ul>
             <div>
                 <Route exact path="/" component={App} />
                 <Route exact path="/campuses" component={AllCampuses} />
@@ -196,10 +237,12 @@ const routing = (
                 <Route exact path="/student" component={SingleStudent} />
                 <Route exact path="/campus/edit" component={EditCampusForm}/>
                 <Route exact path="/campus/add" component={AddCampusPage}/>
+                <Route exact path="/student/add" component={AddStudentPage}/>
                 {/* <Route exact path="/student/:id" component={SingleStudent} />
                 <Route exact path="/campus/:id" component={SingleCampus} /> */}
             </div>
         </Router>
+        <h1>FOOTER TEST</h1>
     </Provider>
 )
 

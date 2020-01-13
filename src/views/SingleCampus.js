@@ -44,24 +44,7 @@ class SingleCampus extends Component{
         // console.log("student List", studentList);
         return(
             <div>
-                <ul>
-                    <li>
-                    <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                    <Link to="/campuses">All Campuses</Link>
-                    </li>
-                    <li>
-                    <Link to="/students">All Students</Link>
-                    </li>
-                    <li>
-                    <Link to="/campus">Single Campus</Link>
-                    </li>
-                    <li>
-                    <Link to="/student">Single Student</Link>
-                    </li>
-                
-                </ul>
+
                 <h1>Single Campus</h1>
                 <p>Campus Name: {this.props.name}</p>
                 <img src={this.props.image} alt={this.props.image}/>

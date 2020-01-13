@@ -19,25 +19,7 @@ class AllCampuses extends Component{
         )
         return(
             <div>
-                {/* //navbar */}
-                <ul>
-                    <li>
-                    <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                    <Link to="/campuses">All Campuses</Link>
-                    </li>
-                    <li>
-                    <Link to="/students">All Students</Link>
-                    </li>
-                    <li>
-                    <Link to="/campus">Single Campus</Link>
-                    </li>
-                    <li>
-                    <Link to="/student">Single Student</Link>
-                    </li>
-                </ul>
-                <h1>All Campuses</h1>
+            <h1>All Campuses</h1>
                 <ul>
                     {allCampusesDisplay}
                 </ul>

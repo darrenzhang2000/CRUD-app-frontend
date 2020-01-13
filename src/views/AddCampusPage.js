@@ -6,7 +6,7 @@ const ADD_TO_ALL_CAMPUSES = "ADD_TO_ALL_CAMPUSES";
 
 class AddCampusPage extends Component{
     submit = values =>{
-        console.log(values);
+        // console.log(values);
         this.props.dispatch({ type: ADD_TO_ALL_CAMPUSES, data: values });
     }
     render(){
