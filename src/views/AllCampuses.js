@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import { StaticRouter } from 'react-router-dom';
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
+const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
 
 class AllCampuses extends Component{
     render(){
         let allCampusesDisplay = this.props.campuses.map((campus, id)=>
             <div key={id}>
-                <p key={id}>Campus {id} Name: {campus.name}</p>
+                <li>
+                    <Link key={id} onClick={()=>this.props.dispatch({ type: ADD_SINGLE_CAMPUS, data: campus})} to="/campus">
+                        Campus Name: {campus.name}
+                    </Link>
+                </li>
                 <img src={campus.image} alt={campus.image}/>
             </div>
         )
@@ -33,7 +38,9 @@ class AllCampuses extends Component{
                     </li>
                 </ul>
                 <h1>All Campuses</h1>
-                {allCampusesDisplay}
+                <ul>
+                    {allCampusesDisplay}
+                </ul>
             </div>
         );
     }
