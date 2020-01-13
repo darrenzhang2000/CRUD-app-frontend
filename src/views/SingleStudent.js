@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
 
@@ -38,7 +37,7 @@ class SingleStudent extends Component{
         );
     }
 }
-
+    
 function mapStateToProps(states){
     return{
         name: states.studentState.singleStudent.name,

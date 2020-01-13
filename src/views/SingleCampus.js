@@ -1,32 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { StaticRouter, Redirect } from 'react-router-dom';
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
-import store from '../index';
+import { Link } from "react-router-dom";
 
 
 const ADD_SINGLE_STUDENT = "ADD_SINGLE_STUDENT";
 
-// onClick={() => dispatch( //onClick should be in containers
-//     {
-//         type: ADD_SINGLE_STUDENT,
-//         data: student
-//     })}
-
-// function navigateToStudent(student){
-//     this.props.dispatch({
-//         type: ADD_SINGLE_STUDENT,
-//         data: student
-//     })
-// }
-
-const ADD_SINGLE_CAMPUS = "ADD_SINGLE_CAMPUS";
-
 class SingleCampus extends Component{
-    constructor(){
-        super();
-    }
-    
     showStudentsOfCampus = () => {
         if(this.props.studentList === undefined) {
             return(<p>This campus does not have any students enrolled.</p>)

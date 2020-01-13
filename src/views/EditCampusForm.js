@@ -1,42 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StaticRouter, Redirect } from 'react-router-dom';
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 const EDIT_SINGLE_CAMPUS = "EDIT_SINGLE_CAMPUS";
 
 class EditCampusForm extends Component{
-    constructor(){
-        super();
-    //     this.state = {
-    //         name: "",
-    //         image: "",
-    //         address: "",
-    //         description: "",
-    //         studentList: ""
-    //     }
-    // }
-    // componentDidMount(){
-    }
-    // }
-    // onChangeHandler = (e) => {
-    //     let field = e.target.name;
-    //     console.log(this);
-    //     let campus = {
-    //         name: this.props.name,
-    //         image: this.props.image,
-    //         address: this.props.address,
-    //         description: this.props.description,
-    //         studentList: this.props.studentList
-    //     }
-    //     campus[field] = this.target.value;
-    //     this.props.dispatch({
-    //         type: EDIT_SINGLE_CAMPUS,
-    //         data: campus,
-    //         campusName: campus.name            
-    //     })
-    // }
-
     render(){
         return(
             <div>

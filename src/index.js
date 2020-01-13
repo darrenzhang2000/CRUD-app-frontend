@@ -11,9 +11,7 @@ import SingleCampus from './views/SingleCampus';
 import SingleStudent from './views/SingleStudent';
 import { Provider } from 'react-redux';
 import EditCampusForm from './views/EditCampusForm';
-import AddCampusForm from './views/AddCampusForm';
 import AddCampusPage from './views/AddCampusPage';
-import AddStudentForm from './views/AddStudentForm';
 import AddStudentPage from './containers/AddStudentPage';
 import { reducer as formReducer } from 'redux-form';
 
@@ -25,7 +23,7 @@ const dummyStudent1 = {
     address: "s1 address",
     gpa: "s1 gpa",
     campusName: "Hunter College"
-}
+    }
 
 const dummyStudent2 = {
     name: "s2",
@@ -63,18 +61,19 @@ const EDIT_SINGLE_STUDENT = "EDIT_SINGLE_STUDENT";
 const EDIT_SINGLE_CAMPUS = "EDIT_SINGLE_CAMPUS";
 
 const campusReducer = function(state = initialCampusState, action){
+    var newState; 
     switch(action.type){
         case ADD_SINGLE_CAMPUS:
             //Since we must treat states as immutable, we must create a new objects/arrays
             console.log("state: ", state)
-            var newState = {
+            newState = {
                 allCampuses: state.allCampuses,
                 singleCampus: action.data  //new campus here
             }
             return newState;    
         case ADD_TO_ALL_CAMPUSES:
             let newAllCampuses = [...state.allCampuses, action.data];
-            var newState = {
+            newState = {
                 allCampuses: newAllCampuses, //new array here
                 singleCampus: state.singleCampus
             }
@@ -90,11 +89,12 @@ const campusReducer = function(state = initialCampusState, action){
 }
 
 const studentReducer = function(state = initialStudentState, action){
+    var newState;
     switch(action.type){
         case ADD_SINGLE_STUDENT:
             //Since we must treat states as immutable, we must create a new objects/arrays
             // console.log("state: ", state);
-            var newState = {
+            newState = {
                 allStudents: state.allStudents,
                 singleStudent: action.data //add new student data here
             }
@@ -103,7 +103,7 @@ const studentReducer = function(state = initialStudentState, action){
             //Since we must treat states as immutable, we must create a new objects/arrays
             // console.log("state: ", state);
             let newAllStudents = [...state.allStudents, action.data];
-            var newState = {
+            newState = {
                 allStudents: newAllStudents, //new array here
                 singleStudent: state.singleStudent
             }
@@ -222,7 +222,6 @@ store.dispatch(
 console.log('done', store.getState());
 console.log(store.getState());
 
-const uniqStudent = ({ match }) => <p>{match.params.id}</p>
 const routing = (
     <Provider store={store}>
  

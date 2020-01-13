@@ -1,7 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { StaticRouter, Redirect } from 'react-router-dom';
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Field } from 'redux-form'
 
